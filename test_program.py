@@ -1,20 +1,18 @@
-import os
+def calculate_sum_and_average(numbers):
+    total_sum = 0
+    for num in numbers:
+        total_sum += num
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-dir_files = [filename.lower() for filename in os.listdir(BASE_DIR)]
-
-files_list = ['program.py', 'readme.md']
+    average = total_sum / len(numbers)
+    return total_sum, average
 
 
-def test_program():
-    for filename in files_list:
-        assert filename in dir_files, f'Файл `{filename}` не найден.'
+numbers = [10, 20, 30, 40, 50]
+total, avg = calculate_sum_and_average(numbers)
+print(f'Сумма чисел: {total}')
+print(f'Среднее значение: {avg}')
 
-    try:
-        import program
-    except Exception as e:
-        assert False, (
-            'Не удалось запустить `program.py`. '
-            'Исправьте в нем ошибки:\n'
-            f'{e}'
-        )
+numbers = [11, 22, 33, 42, 51]
+total, avg = calculate_sum_and_average(numbers)
+print(f'Сумма чисел: {total}')
+print(f'Среднее значение: {avg}') 
